@@ -46,6 +46,20 @@ bool enfilar (Fila &F, char c)
     F.vetor[F.u] = c;//assign the new pointed end with char c.
 return true;
 }
+/*
+if we have 2 arrays (ex: 2 with 5 slots), we could use:
+
+if(F.ultimo >= 5)  ---> the F.u moves beyond 4 and the char is stored based on that.
+   {
+    F.v2[F.ultimo - 5] = c;
+   }
+   else
+   {
+    F.v1[F.ultimo] = c;
+   }
+   return true;
+
+*/
 
 bool desenfilar  (Fila &F) //first in, first out.
 {
@@ -67,10 +81,14 @@ bool desenfilar  (Fila &F) //first in, first out.
     return true;
 }
 
-char primeiro (Fila &F)//pre-condition: not empty(F)
+char primeiro (Fila &F)//pre-condition: not empty(F).
 {
     return F.vetor[F.p];
 }
+/*
+in the situation with 2 arrays we should check if
+ F.p is >4 or not to return F.v1 or F.v2.
+*/
 
 int main()
     {
