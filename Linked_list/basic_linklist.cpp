@@ -36,12 +36,12 @@ struct Pilha//we will use a stack to represent the linked list.
 
     void empilhar (int e)
     {
-        //Noh *novo = new Noh;
-        //novo->elem = e;
-        //novo->prox = topo; //the last one should point to the topo always.
-        //topo = novo; //the fields of top node is updated.
+        Noh *novo = new Noh;
+        novo->elem = e;
+        novo->prox = topo; //the last one should point to the topo always.
+        topo = novo; //the fields of top node is updated.
 
-        topo = new Noh {e, topo}; //new Noh dinamically alocates a new object of the type "Noh" in Heap Memory.
+        //topo = new Noh{e, topo}; //new Noh dinamically alocates a new object of the type "Noh" in Heap Memory.
                                   //{e, topo} is an initialization list that initialize this new object 
                                   //the prox field = topo (a pointer to the top) and elem field = e.
     }
@@ -60,7 +60,10 @@ struct Pilha//we will use a stack to represent the linked list.
 
     ~Pilha() // destructor
     {
-        //TODO
+        while(topo != nullptr)
+        {
+            desempilhar();
+        }
     }
 
 
@@ -68,5 +71,13 @@ struct Pilha//we will use a stack to represent the linked list.
 
 int main()
 {
+    Pilha p;
+    p.empilhar(10);
+    p.empilhar(20);
+    p.empilhar(30);
+    cout << "Topo: " << p.consultar_topo() << endl;
+    p.desempilhar();
+    cout << "Topo após desempilhar: " << p.consultar_topo() << endl;
 
+    return 0;
 }
