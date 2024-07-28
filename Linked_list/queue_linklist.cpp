@@ -31,7 +31,7 @@ struct Fila
         
         ultimo = novo;
 
-        if (primeiro = nullptr)
+        if (primeiro == nullptr)
         {
             primeiro = novo;
         }
@@ -49,7 +49,7 @@ struct Fila
         
         Noh*temp = primeiro; //temp now has the adress of primeiro.
         primeiro = primeiro->prox; //primeiro has a new adress.
-        if(primeiro = nullptr)
+        if(primeiro == nullptr)
         {
             ultimo = nullptr;
         }
@@ -63,3 +63,8 @@ struct Fila
         return primeiro->valor;
     }
 };
+
+int main()
+{
+
+}
